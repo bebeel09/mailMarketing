@@ -36,10 +36,8 @@
         function insertJson() {
             var data = {
                 "mail": "common@gmail.com",
-                "act": "123456789",
-                "first_name": "Петя",
-                "last_name": "Петров",
-                "medium_name": "Петрович",
+                "act": "Ш0000000021",
+                "contact_person": "Петров Пётр Петрович",
                 "phone_num": "9022756507",
             };
 

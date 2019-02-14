@@ -7,9 +7,7 @@ if($jsonText)
 {
  $mail= $jsonText['mail'];
 $act=$jsonText['act']; 
-$first_name=$jsonText['first_name'];
-$last_name=$jsonText['last_name'];
-$medium_name=$jsonText['medium_name'];
+$first_name=$jsonText['contact_person'];
 $phone_num=$jsonText['phone_num'];
 } else die("Данные не получены, операция прервана");
 
@@ -23,7 +21,7 @@ $phone_num=$jsonText['phone_num'];
     }
   
 
-    $query = "INSERT INTO mail_tb (mail,act_num,first_name,last_name,medium_name,create_time,phone_num) VALUES ('$mail','$act','$first_name','$last_name','$medium_name',CURDATE(),'$phone_num');";
+    $query = "INSERT INTO mail_tb (mail,act_num,contact_person,create_time,phone_num) VALUES ('$mail','$act','$first_name',CURDATE(),'$phone_num');";
     $res = mysqli_query($link,$query);
     if ($res) echo "Запись добавлена в таблицу.\n";
     else die( "Не удалось выполнить запрос! ".mysqli_error($link));
