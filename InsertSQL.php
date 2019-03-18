@@ -1,8 +1,10 @@
 <?php 
 require "constant.php";
 
+//декодируем полученный JSON
 $jsonText =json_decode( $_POST['myJson'],true);
 
+//Если полученный JSON не поустой выполняем добавление в БД данных
 if($jsonText)
 {
  $mail= $jsonText['mail'];
@@ -20,7 +22,7 @@ $phone_num=$jsonText['phone_num'];
         printf("Удалось подключиться: %s\n", mysqli_get_host_info($link));
     }
   
-
+//запрос на добавление данных в БД
     $query = "INSERT INTO mail_tb (mail,act_num,contact_person,create_time,phone_num) VALUES ('$mail','$act','$first_name',CURDATE(),'$phone_num');";
     $res = mysqli_query($link,$query);
     if ($res) echo "Запись добавлена в таблицу.\n";
@@ -32,3 +34,4 @@ $phone_num=$jsonText['phone_num'];
     mysqli_close($link);
     echo "Соединение разорвано";
     ?>
+   

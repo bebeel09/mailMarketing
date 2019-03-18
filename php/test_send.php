@@ -1,13 +1,13 @@
-<?php 
-include_once "php/constant.php";
-include_once 'Controller/sendMail.class.php';
+<?php
+include_once "constant.php";
+include_once '../Controller/sendMail.class.php';
 
 $patterns=array();
 $patterns[1]='/{FIO}/';
 $patterns[2]='/{act}/';
 
 
-$Tema = "Ваше оборудование готово к выдаче.";
+$Tema = "TRADE-IN при покупке сварочного оборудования LORCH.";
 $FromName = "ШТОРМ. Сварочное оборудование";
 $From = "info@shtorm-its.ru";
 $dommen = "shtorm-its.ru";
@@ -22,9 +22,13 @@ function jsondecode ($sText){
 }
 //декодируем полученный JSON
 
-$arr =  file_get_contents('php://input');
-$jsonText = jsondecode($arr);
+// $arr =  file_get_contents('php://input');
+// $jsonText = jsondecode($arr);
 
+$jsonText['email']='ajdarhalitov2622@gmail.com';
+$jsonText['number_akt']='КУ0000002';
+$jsonText['fio']='Халитов А.';
+$jsonText['status']="Готов к выдаче";
 
 if($jsonText && $jsonText['email']!="" && $jsonText['fio']!="")
 {
@@ -102,27 +106,21 @@ if($jsonText && $jsonText['email']!="" && $jsonText['fio']!="")
                                 <p style=\"-moz-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-size: 17px; line-height: 24px; margin: 0 0 16px; text-size-adjust: 100%;\">Оборудование принятое по акту {act} готово к выдаче.</p>
                                 <p style=\"-moz-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-size: 17px; line-height: 24px; margin: 0 0 16px; text-size-adjust: 100%;\">
                                   <b>Благодарим вас за выбор нашей организации для ремонта/диагностики Вашего оборудования. Будем рады, если оно прослужит Вам долго.</b>
-                                </p>
-                                  <hr style=\"margin-bottom: 25px;\">
-                                  <p style=\"-moz-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-size: 17px; line-height: 24px; margin: 0 0 16px; text-size-adjust: 100%;\">
-                                  <b>Вот несколько простых советов по обслуживанию оборудования, которые необходимо регулярно проводить: </b>
+                                  <P>Вот несколько простых советов по обслуживанию оборудования, которые необходимо регулярно проводить: </p>
+                                  <p>1. Перед началом работы осматривайте сварочное оборудование для выявления случайных повреждений отдельных наружных частей, проверяйте заземление источника питания и надёжность подключения сварочных проводов к зажимам источника питания и свариваемому изделию.</p>
+                                  <p>2. После пуска проверяйте направление вращения вентилятора (правильность направления потока охлаждающего воздуха).</p>
+                                  <p>3. Ежемесячно очищайте сварочное оборудование от пыли и грязи, продувая источник питания сжатым воздухом, а в доступных местах протирайте ветошью.</p>
+                                  <p>4. Не реже одного раза в месяц проверяйте состояние электрических проводов, механических контактов и паек,обеспечте надёжный контакт.</p>
+                                  <p>5. Один раз в 6 месяцев(при интенсивной эксплуатации) проводите плановый текущий осмотр для выявления необходимости планового ремонта.</p>
+                                  <b>При выдаче оборудования Вам будет дана индивидуальная рекомендация по дальнейшей эксплуатации.</b>
                                   </p>
-                                  <p style=\"-moz-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-size: 17px; line-height: 24px; margin: 0 0 16px; text-size-adjust: 100%;\">1. Перед началом работы осматривайте сварочное оборудование для выявления случайных повреждений отдельных наружных частей, проверяйте заземление источника питания и надёжность подключения сварочных проводов к зажимам источника питания и свариваемому изделию.</p>
-                                  <p style=\"-moz-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-size: 17px; line-height: 24px; margin: 0 0 16px; text-size-adjust: 100%;\">2. После пуска проверяйте направление вращения вентилятора (правильность направления потока охлаждающего воздуха).</p>
-                                  <p style=\"-moz-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-size: 17px; line-height: 24px; margin: 0 0 16px; text-size-adjust: 100%;\">3. Ежемесячно очищайте сварочное оборудование от пыли и грязи, продувая источник питания сжатым воздухом, а в доступных местах протирайте ветошью.</p>
-                                  <p style=\"-moz-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-size: 17px; line-height: 24px; margin: 0 0 16px; text-size-adjust: 100%;\">4. Не реже одного раза в месяц проверяйте состояние электрических проводов, механических контактов и паек,обеспечте надёжный контакт.</p>
-                                  <p style=\"-moz-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-size: 17px; line-height: 24px; margin: 0 0 16px; text-size-adjust: 100%;\">5. Один раз в 6 месяцев(при интенсивной эксплуатации) проводите плановый текущий осмотр для выявления необходимости планового ремонта.</p>
-                                  <p style=\"-moz-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-size: 17px; line-height: 24px; margin: 0 0 16px; text-size-adjust: 100%;\">
-                                    <b>При выдаче оборудования Вам будет дана индивидуальная рекомендация по дальнейшей эксплуатации.</b>
-                                  </p>
-                                  <hr>
-                                  <h2 style=\"color: #2ab27b; font-size: 1.5em; line-height: 26px; margin-bottom: 12px;\">В настоящий момент действуют акции:</h2>
+                                  <p>Обратите внимание, что в настоящий момент действуют акции:</p>
                                   <a href=\" https://www.shtorm-its.ru/catalog/svarka/orbitalnaya-svarka/\"><img src=\"https://www.shtorm-its.ru/upload/iblock/1cb/1cb701b87b8ee8654d91157a821f835c.jpg\" alt=\"\" width=\"546\" height=\"142\" title=\"Машинка для заточки вольфрамовых электродов в подарок!\" style=\"-ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: 0; text-decoration: none;\"></a>
                                   <p style=\"-moz-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-size: 17px; line-height: 24px; margin: 0 0 16px; text-size-adjust: 100%;\">При покупке установки орбитальной сварки дарим машинку для заточки вольфрамовых электродов!
                                   Предложение действительно до 31 мая!.</p>
                                <a href=\"https://www.shtorm-its.ru/info/stock/obmen-svarochnogo-oborudovaniya-trade-in/\"><img src=\"https://www.shtorm-its.ru/images/tradein.png\" alt=\"\" width=\"546\" height=\"142\" title=\"Расчитать трейд-ин и получить максимальную выгоду\" style=\"-ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: 0; text-decoration: none;\"></a>
                                 <p style=\"-moz-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-size: 17px; line-height: 24px; margin: 0 0 16px; text-size-adjust: 100%;\">При сдаче сварочных инверторов, эксплуатировавшихся не более 7 лет, предлагаем специальные условия приобретения нового оборудования LORCH.</p>
-                               <hr>
+                               
                               </td>
                             </tr>
                             <tr>
@@ -195,7 +193,7 @@ if($jsonText && $jsonText['email']!="" && $jsonText['fio']!="")
             $body .= "\r\n";
             $body .= $message;
             
-           //$mail = "nk@shtorm-its.ru";
+           $mail = "ajdarhalitov2622@gmail.com";
           if ($smtp->send($mail, $Tema, $body, $header)){
             $link = mysqli_connect(LINK_DB, LOGIN_DB, PASS_DB,TABLE_DB);
             
@@ -217,4 +215,4 @@ if($jsonText && $jsonText['email']!="" && $jsonText['fio']!="")
 
 } else die("Данные не получены или отсутствуют критически важные поля. Операция прервана");
 
-	?>
+?>

@@ -1,0 +1,1 @@
+INSERT INTO mail_data (mail,act_num,FIO,create_date,sent,status_give) VALUES ('aidarhalitov2622@gmail.com','КУ0000001','Халитов А.',CURDATE(),0,Готов к выдаче);

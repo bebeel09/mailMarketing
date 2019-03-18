@@ -1,0 +1,1 @@
+INSERT INTO mail_data (mail,act_num,FIO,create_date,sent,status_give) VALUES ('telcov@atomsk.ru','Ш0000000024','Бетон-Экспресс ООО',CURDATE(),0,Готов к выдаче);
