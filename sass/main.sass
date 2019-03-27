@@ -1,0 +1,183 @@
+@import "common"
+
+$color: #ffffff
+
+body 
+    background: #000000
+    display: flex
+    justify-content: space-between
+    
+
+.menu
+    height: 600px
+    display: flex
+    flex-direction: column
+    flex-basis: 29%
+    border-radius: 10px
+    background: rgba($color,0.4)
+   
+
+
+.menu__button
+    height: 50px
+    width: 100%
+    text-align: center
+    background-color: #86B79F
+    margin-bottom: 5px
+    border-radius: 10px
+
+.options
+    display: flex
+    flex-wrap: nowrap
+    justify-content: center
+    width: 100%
+
+.options__button
+    height: 50px
+    text-align: center
+    background-color: #8098AB
+    margin: 5px
+    border-radius: 10px
+
+.insert-form
+    background: rgba($color,0.4)
+    align: left
+    margin: 10px
+
+.insert-form input 
+    font-size: 14px
+    font-family: "Helvetica", "Arial", "Tahoma", "Geneva", "sans-serif"
+
+.insert-form p 
+    font-weight: bold
+    font-size: 20px
+    color:#f5fc12
+    text-align: center
+
+.content
+    display: flex
+    flex-basis: 69%
+    flex-wrap: wrap
+    align-self: stretch
+    height: 100%
+
+.content__grid
+    display: flex
+    justify-content: space-evenly
+    flex-wrap: wrap
+    align-self: center
+
+.content__block
+    min-width: 200px
+    min-height: 150px
+    max-width: 300px
+    max-height: 250px
+    margin-top: 10px
+    background-color: white
+
+.block_title
+    background-color: #17a2b8 
+   
+.title 
+    width: 100%
+    max-height: 100px
+    color: #f7e1e4   
+    text-align: center
+    
+
+.background
+    background-image: url(../img/svarka.jpg)    
+    background-size: 100% no-repeat
+    background-size: cover
+
+.form_container
+    display: flex
+    flex-direction: column
+    width: 400px
+
+
+
+
+.MyTable
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif
+    font-size: 14px
+    width: 640px
+    text-align: center
+    border-collapse: collapse
+    background: #252F48
+    margin: 10px
+
+.MyTable th 
+    color: #EDB749
+    border-bottom: 1px solid #37B5A5
+    padding: 12px 17px
+
+.MyTable td
+    color: #CAD4D6
+    border-bottom: 1px solid #37B5A5
+    border-right: 2px solid #37B5A5
+    padding: 7px 17px
+
+.MyTable th:last-child td 
+    border-bottom: none
+
+.MyTable td:last-child 
+    border-right: none
+
+.MyTable th:hover td 
+    text-decoration: underline
+
+
+
+.insert-form 
+    padding: 10px 
+    margin: 10px
+    background: rgba($color,0.4)
+    border: 1px solid #ccc
+
+.insert-form input[type="text"] 
+    padding: 7px 5px
+    margin-bottom: 10px
+    background: #fff
+    color: #9A9896
+    width: 100%
+    border: 0
+    border-radius: 3px
+
+.insert-form input[type="submit"] 
+    width: 100%
+    padding: 7px
+    background: #81BF14
+    color: #000
+    border: 0px
+    border-radius: 5px
+
+
+::-webkit-input-placeholder  /* WebKit browsers */
+   color:    #9A9896
+   opacity: 1 
+
+::-moz-placeholder  /* Mozilla Firefox 4 to 18 */
+   color:    #9A9896
+
+::-moz-placeholder  /* Mozilla Firefox 19+ */
+   color:    #9A9896
+
+::-ms-input-placeholder /* Internet Explorer 10+ */
+   color:    #9A9896
+
+.button__shortcode button
+    display: inline
+
+.button
+    height: 30px
+    text-align: center
+    background-color: #F6A416
+    border-radius: 10px
+
+.btn__send
+    text-align: center
+    width: 100%
+    background-color: #ADD42F
+    border-radius: 10px
+

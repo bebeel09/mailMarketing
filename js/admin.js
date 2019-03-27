@@ -22,15 +22,15 @@
     });
 
     $('#btn_send_mail').click(function () {
-        alert("Отключено!");
-        // $.ajax({
-        //     url: "php/test_send.php",
-        //     method: "POST",
-        //     // cache: false,
-        //     success: function (res) {
-        //         alert(res);
-        //     }
-        // });
+       // alert("Отключено!");
+        $.ajax({
+            url: "php/send_feedback.php",
+            method: "POST",
+            // cache: false,
+            success: function (res) {
+                alert(res);
+            }
+        });
     });
     $('#btn_email_template').click(function () {
         $.ajax({
@@ -101,6 +101,11 @@
             }
         });
     });
+
+    $('#see_template_again').click(function () {
+         window.open("test_email_template_for_send_mail.html");
+        
+     });
 
     function insert_shortcode(idElement, text) {
         var area = document.getElementById(idElement);

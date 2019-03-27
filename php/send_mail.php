@@ -49,7 +49,7 @@ while($result =mysqli_fetch_assoc($res)){
         $ID_clinet=$result['ID'];
 
 
-        $test_message=preg_replace( $patterns,$replacement,$result['template']);
+        $test_message= html_entity_decode(preg_replace( $patterns,$replacement,$result['template']));
 
 
         // Отправляем
@@ -81,7 +81,7 @@ while($result =mysqli_fetch_assoc($res)){
             //     echo "Изменение в бд";
             // }else echo "косяк";
         echo "Отправлено";
-        sleep(5);
+       //sleep(5);
     }else echo "Статус: не готов к выдаче!";
 }
 
