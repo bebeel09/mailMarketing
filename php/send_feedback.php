@@ -18,17 +18,16 @@ $patterns[1]='/{FIO}/';
             mysqli_query($link,"SET NAMES utf8");
             
             //запрос на получение данных из БД
-            $query = "SELECT ID, mail, act_num, FIO, act_date, feedback_template, status_give  FROM data_mail_and_template_where_feedback WHERE DATEDIFF(CURDATE(),create_date)>=7;";
+            $query = "SELECT ID, mail, act_num, FIO, act_date, status_give, feedback_template  FROM data_mail_and_template_where_feedback";
             $res = mysqli_query($link,$query) or die("Не удалось отправить запрос.\n");
             
             //закрываем соединение
-            mysqli_close($link);
+             mysqli_close($link);
 
-           var_dump(mysqli_fetch_assoc($res));
             $smtp = new SendMailSmtpClass("info@shtorm-its.ru", "jikmjikm", "mail.shtorm-its.ru", "info@shtorm-its.ru", $smtp_port = 25, $smtp_charset = "utf-8") or die("всё плохо");
             
             while($result = mysqli_fetch_assoc($res)){
-
+              var_dump($result["ID"]);
               $replacement=array();
               $replacement[1]=$result['FIO'];
 
@@ -66,10 +65,10 @@ $patterns[1]='/{FIO}/';
                   mysqli_query($link,"SET NAMES utf8");
                 
                   $query = "UPDATE mail_data SET sent_feedback=1 WHERE ID={$ID};";
-                  $res = mysqli_query($link,$query);
+                  $res1 = mysqli_query($link,$query);
                   mysqli_close($link);
               }
-              echo "Отправлено";
+              echo ("Отправлено\n");
         }
         echo "Отправку закончил";
             
